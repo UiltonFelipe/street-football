@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Street Kings 1v1</title>
+  <link rel="stylesheet" href="style.css">
+<base target="_blank">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO: placar + cronômetro -->
+    <header class="hud">
+      <div class="hud-lado">
+        <span class="hud-nome voce">VOCÊ</span>
+        <span class="hud-placar" id="placarVoce">0</span>
+      </div>
+      <div class="hud-centro">
+        <div class="hud-titulo">STREET KINGS 1v1</div>
+        <div class="hud-timer" id="cronometro">60</div>
+      </div>
+      <div class="hud-lado">
+        <span class="hud-placar" id="placarAdversario">0</span>
+        <span class="hud-nome cpu">CPU</span>
+      </div>
+    </header>
+
+    <!-- ÁREA DO JOGO -->
+    <div class="quadro">
+      <canvas id="campo" width="900" height="500"></canvas>
+
+      <!-- TELA INICIAL -->
+      <div class="tela" id="telaInicial">
+        <h1>STREET KINGS <span>1v1</span></h1>
+        <p>Futebol de rua. Um contra um. Só vale o seu talento.</p>
+        <button class="botao" id="botaoComecar">COMEÇAR PARTIDA</button>
+      </div>
+
+      <!-- TELA DE RESULTADO -->
+      <div class="tela escondida" id="telaResultado">
+        <h1 id="textoResultado">VITÓRIA!</h1>
+        <p id="textoPlacarFinal">3 x 1</p>
+        <button class="botao" id="botaoJogarNovamente">JOGAR NOVAMENTE</button>
+      </div>
+    </div>
+
+    <!-- COMANDOS -->
+    <footer class="comandos">
+      <div class="comando"><span class="tecla">A</span><span class="tecla">D</span> ou <span class="tecla">◀</span><span class="tecla">▶</span> Mover</div>
+      <div class="comando"><span class="tecla">ESPAÇO</span> Drible</div>
+      <div class="comando"><span class="tecla">J</span> Chutar</div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

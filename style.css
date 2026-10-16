@@ -1,0 +1,189 @@
+/* ============================================
+   STREET KINGS 1v1 — Folha de estilo
+   Tema: escuro + verde neon (estética street/arcade)
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0b0f0d;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #e8f5ee;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+}
+
+/* ---------- HUD (placar + cronômetro) ---------- */
+.hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111a16;
+  border: 1px solid #1f2e26;
+  border-radius: 12px;
+  padding: 12px 24px;
+  margin-bottom: 14px;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.08);
+}
+
+.hud-lado {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hud-nome {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.hud-nome.voce { color: #39ff14; }
+.hud-nome.cpu  { color: #ff4757; }
+
+.hud-placar {
+  font-size: 40px;
+  font-weight: 900;
+  min-width: 50px;
+  text-align: center;
+  text-shadow: 0 0 12px rgba(57, 255, 20, 0.5);
+}
+
+.hud-centro { text-align: center; }
+
+.hud-titulo {
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: #39ff14;
+  font-weight: bold;
+}
+
+.hud-timer {
+  font-size: 32px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.hud-timer.urgente { color: #ff4757; animation: piscar 1s infinite; }
+
+@keyframes piscar {
+  50% { opacity: 0.4; }
+}
+
+/* ---------- ÁREA DO JOGO ---------- */
+.quadro {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #1f2e26;
+  box-shadow: 0 0 30px rgba(57, 255, 20, 0.12);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #12251a;
+}
+
+/* ---------- TELAS (início / resultado) ---------- */
+.tela {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 10, 8, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+  z-index: 10;
+}
+
+.tela.escondida { display: none; }
+
+.tela h1 {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #e8f5ee;
+  text-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+}
+
+.tela h1 span { color: #39ff14; }
+
+.tela p {
+  color: #9db8ab;
+  font-size: 16px;
+}
+
+.botao {
+  background: #39ff14;
+  color: #06110a;
+  border: none;
+  padding: 14px 42px;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.botao:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 25px rgba(57, 255, 20, 0.7);
+}
+
+#textoResultado.vitoria { color: #39ff14; text-shadow: 0 0 25px rgba(57,255,20,0.7); }
+#textoResultado.derrota { color: #ff4757; text-shadow: 0 0 25px rgba(255,71,87,0.7); }
+#textoResultado.empate  { color: #ffd700; text-shadow: 0 0 25px rgba(255,215,0,0.7); }
+
+#textoPlacarFinal { font-size: 30px; font-weight: 900; color: #e8f5ee; }
+
+/* ---------- RODAPÉ (comandos) ---------- */
+.comandos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.comando {
+  font-size: 13px;
+  color: #9db8ab;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tecla {
+  background: #1a2a21;
+  border: 1px solid #2d4438;
+  border-bottom: 3px solid #2d4438;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #39ff14;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 640px) {
+  .tela h1 { font-size: 32px; }
+  .hud-placar { font-size: 28px; }
+  .comandos { gap: 12px; }
+}
